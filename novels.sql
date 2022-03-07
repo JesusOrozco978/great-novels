@@ -47,7 +47,6 @@ PRIMARY KEY (novelId,genreId),
 FOREIGN KEY(novelId) REFERENCES novels(id),
 FOREIGN KEY(genreId)  REFERENCES genres(id)
 );
-
 INSERT INTO novelsGenres (novelId, genreId) VALUES (1,1);
 INSERT INTO novelsGenres (novelId, genreId) VALUES (1,2);
 INSERT INTO novelsGenres (novelId, genreId) VALUES (1,4);
