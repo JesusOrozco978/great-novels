@@ -16,7 +16,12 @@ const getAllNovels = async (request, response) => {
 const getNovelsById = async (request, response) => {
   const { id } = request.params
   const foundNovels = await models.Novels.findOne({
-    where: { id },
+    where: {
+      [models.Sequelize.Op.or]: [
+        { id: id },
+        { title: { [models.Sequelize.Op.like]: `%${id}%` } },
+      ]
+    },
     include: [{
       model: models.Author
     }, {
